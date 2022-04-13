@@ -1,0 +1,58 @@
+.sortable {
+    border-spacing: 1.5px !important;
+    border-color: #191e3a !important;
+    background-color: #060818;
+    color: #d3d3d3;
+}
+
+.sortable tbody tr:nth-child(odd) {
+    background-color: rgba(25, 30, 58, 0.631373) !important;
+}
+
+.sortable td,
+.sortable th {
+    padding: 2px;
+    text-align: center;
+}
+
+.sortable td:first-child,
+.sortable th:first-child {
+    border-top-left-radius: 4px;
+}
+
+.sortable td:last-child,
+.sortable th:last-child {
+    border-top-right-radius: 4px;
+}
+
+.sortable th {
+    cursor: pointer;
+    font-weight: normal;
+    text-transform: capitalize;
+    vertical-align: center;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.sortable tr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.sortable th.dir-d {
+    color: red;
+}
+
+.sortable th.dir-d::after {
+    color: inherit;
+    content: ' \025BE';
+}
+
+.sortable th.dir-u {
+    color: green;
+}
+
+.sortable th.dir-u::after {
+    color: inherit;
+    content: ' \025B4';
+}
