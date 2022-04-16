@@ -2,7 +2,7 @@
 @section('main_content')
     <div id="flHorizontalForm" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
         <div class="table-responsive mt-3" style="zoom: 95%;padding-bottom: 100px;">
-            <table>
+            <table id="list" class="sortable massive table table-hover table-bordered">
                 <thead>
                     <script src="dist/timeago.js" type="text/javascript"></script>
                     <tr>
@@ -43,6 +43,9 @@
                 <tbody>
                     {!! $table !!}
                 </tbody>
+                <tfoot>
+                    <tr id="sabyTableFooter"></tr>
+                </tfoot>
             </table>
         </div>
     </div>
@@ -50,6 +53,14 @@
     <script type="text/javascript" src="assets/js/jquery.timeago.min.js"> </script>
     <script>
         $(document).ready(function() {
+            $("#TableSearchBox").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#list tbody tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+                $('#sabyTableFooter').empty().append('<td colspan="26"> TOTAL SABY : ' + $(
+                    '#list tbody tr:visible').length + '</td></tr>');
+            });
             jQuery(".spanago").timeago();
         });
     </script>
